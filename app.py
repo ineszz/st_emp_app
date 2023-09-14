@@ -39,12 +39,16 @@ def main():
     # with col2:
     st.dataframe(df.T.style.highlight_max(axis=0))
         # Make a prediction
-    if st.button("Predictie scor plecare angajat"):
-            prediction = model.predict(df)    
-            if prediction == 1 :
-                st.success('** EXIT **. Predictia spune ca angajatul are probabilitate mare de a pregati EXIT curand!')
-            elif prediction == 0 :
-                st.success('** JOURNEY **.Predictia spune ca angajatul nu se pregateste de EXIT.')
+
+    try:
+        if st.button("Predictie scor plecare angajat"):
+                prediction = model.predict(df)    
+                if prediction == 1 :
+                    st.success('** EXIT **. Predictia spune ca angajatul are probabilitate mare de a pregati EXIT curand!')
+                elif prediction == 0 :
+                    st.success('** JOURNEY **.Predictia spune ca angajatul nu se pregateste de EXIT.')
+    except Exception as e: 
+        st.write('** EXIT || JOURNEY **. Nu ai introdus valori valide. Citeste cu atentie instructiunile')  
 
 
 if __name__ == '__main__':
