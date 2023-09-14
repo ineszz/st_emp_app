@@ -3,7 +3,7 @@
 import streamlit as st
 from sklearn import svm
 import pandas as pd
-# import numpy as np
+import numpy as np
 import pickle
 from PIL import Image
 img = Image.open('emp_icon.png')
